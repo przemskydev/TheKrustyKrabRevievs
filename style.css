@@ -49,25 +49,15 @@
 
 .prevBtn,
 .nextBtn {
-    font-size: 1.5rem;
-    padding: 0.1rem;
-    color: #f15025;
-    border: 0.1rem solid #f15025;
-    display: inline-block;
     position: absolute;
-    padding: 0.4rem;
-    border-radius: 50%;
-    transition: all 1s ease-in-out;
 }
 
 .prevBtn:hover {
     background: #f15025;
-    color: white;
 }
 
 .nextBtn:hover {
     background: #f15025;
-    color: white;
 }
 
 .prevBtn {
@@ -80,4 +70,15 @@
     top: 50%;
     right: 0;
     transform: translate(120%, -50%);
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Slackey', sans-serif;
+}
+
+.btn {
+    color: white !important;
 }
