@@ -1,15 +1,31 @@
-body {
-    background-color: lightgrey !important;
+.bg-wallpaper {
+    background-image: url("img/bgok.jpg") !important;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    filter: blur(4px);
+    -webkit-filter: blur(4px);
+    position: fixed;
+    height: 100%;
+    min-height: 100vh;
+    z-index: 1;
+    display: block;
+    left: 0;
+    right: 0;
 }
 
 .height {
-    min-height: 100vh;
+    position: fixed;
+    height: 100%;
+    left: 0;
+    right: 0;
+    z-index: 999;
 }
 
 .customerOpinion {
     background: transparent !important;
     color: white;
-    border: 0.05rem solid white;
+    border: 0.1rem solid white !important;
     padding-bottom: 1rem;
     padding-left: 1rem;
     padding-right: 1rem;
