@@ -41,10 +41,10 @@ const customerArray = [
     [2, 'PAtrick', 'Is mayonnaise an instrument?'],
     [3, 'Squidward', 'I order the food, you cook the food, the customer gets the food. We do that for forty years and than we die.'],
     [4, 'Mr Krab', 'We shall never deny a guest even the most ridiculous request.'],
-    [5, 'Yellow fish', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'],
-    [6, 'Weird fish', 'Aliquam lacus lectus, varius et mauris ut, ultricies scelerisque enim. Maecenas vehicula urna quis diam vehicula hendrerit.'],
-    [7, 'Disgusted fish', 'Vestibulum vel cursus arcu. Vestibulum laoreet velit ut tortor pulvinar semper'],
-    [8, 'Pulled-pants fish', 'Suspendisse potenti. Morbi porta elementum velit. Maecenas efficitur porttitor ornare.']
+    // [5, 'Yellow fish', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'],
+    // [6, 'Weird fish', 'Aliquam lacus lectus, varius et mauris ut, ultricies scelerisque enim. Maecenas vehicula urna quis diam vehicula hendrerit.'],
+    // [7, 'Disgusted fish', 'Vestibulum vel cursus arcu. Vestibulum laoreet velit ut tortor pulvinar semper'],
+    // [8, 'Pulled-pants fish', 'Suspendisse potenti. Morbi porta elementum velit. Maecenas efficitur porttitor ornare.']
 ];
 
 customerArray.forEach(function(arrEl) {
