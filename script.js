@@ -35,7 +35,7 @@ class Customer {
 const createCustomer = function(img, name, opinion) {
 
     let customer = new Customer(img, name, opinion);
-    newCustomersArr.unshift(customer);
+    newCustomersArr.push(customer);
 
 };
 
@@ -57,17 +57,17 @@ customerArray.forEach(function(arrEl) {
 const changeOpinion = (e) => {
     console.log(e.target.parentNode)
     if (e.target.parentNode.classList.contains('nextBtn')) {
-        i++;
-        if (i == newCustomersArr.length) {
-            i = 0
+        i--
+        if (i < 0) {
+            i = newCustomersArr.length - 1
         }
         customerImage.src = newCustomersArr[i].picture;
         customerName.textContent = newCustomersArr[i].name;
         customerOpinion.textContent = newCustomersArr[i].opinion;
     } else {
-        i--
-        if (i < 0) {
-            i = newCustomersArr.length - 1
+        i++;
+        if (i == newCustomersArr.length) {
+            i = 0
         }
         customerImage.src = newCustomersArr[i].picture;
         customerName.textContent = newCustomersArr[i].name;
