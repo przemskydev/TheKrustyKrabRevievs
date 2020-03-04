@@ -36,14 +36,29 @@ const createCustomer = function(img, name, opinion) {
 
 };
 
-createCustomer(1, 'Spongebob', 'The Krabby Patty is what ties us all together! Without it, there will be a complete breakdown of social order!');
-createCustomer(2, 'PAtrick', 'Is mayonnaise an instrument?');
-createCustomer(3, 'Squidward', 'I order the food, you cook the food, the customer gets the food. We do that for forty years and than we die.');
-createCustomer(4, 'Mr Krab', 'We shall never deny a guest even the most ridiculous request.');
-createCustomer(5, 'Yellow fish', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.');
-createCustomer(6, 'Weird fish', 'Aliquam lacus lectus, varius et mauris ut, ultricies scelerisque enim. Maecenas vehicula urna quis diam vehicula hendrerit.');
-createCustomer(7, 'Disgusted fish', 'Vestibulum vel cursus arcu. Vestibulum laoreet velit ut tortor pulvinar semper');
-createCustomer(8, 'Pulled-pants fish', 'Suspendisse potenti. Morbi porta elementum velit. Maecenas efficitur porttitor ornare.');
+const customerArray = [
+    [1, 'Spongebob', 'The Krabby Patty is what ties us all together! Without it, there will be a complete breakdown of social order!'],
+    [2, 'PAtrick', 'Is mayonnaise an instrument?'],
+    [3, 'Squidward', 'I order the food, you cook the food, the customer gets the food. We do that for forty years and than we die.'],
+    [4, 'Mr Krab', 'We shall never deny a guest even the most ridiculous request.'],
+    [5, 'Yellow fish', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'],
+    [6, 'Weird fish', 'Aliquam lacus lectus, varius et mauris ut, ultricies scelerisque enim. Maecenas vehicula urna quis diam vehicula hendrerit.'],
+    [7, 'Disgusted fish', 'Vestibulum vel cursus arcu. Vestibulum laoreet velit ut tortor pulvinar semper'],
+    [8, 'Pulled-pants fish', 'Suspendisse potenti. Morbi porta elementum velit. Maecenas efficitur porttitor ornare.']
+];
+
+customerArray.forEach(function(arrEl) {
+    createCustomer(arrEl[0], arrEl[1], arrEl[2])
+})
+
+// createCustomer(1, 'Spongebob', 'The Krabby Patty is what ties us all together! Without it, there will be a complete breakdown of social order!');
+// createCustomer(2, 'PAtrick', 'Is mayonnaise an instrument?');
+// createCustomer(3, 'Squidward', 'I order the food, you cook the food, the customer gets the food. We do that for forty years and than we die.');
+// createCustomer(4, 'Mr Krab', 'We shall never deny a guest even the most ridiculous request.');
+// createCustomer(5, 'Yellow fish', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.');
+// createCustomer(6, 'Weird fish', 'Aliquam lacus lectus, varius et mauris ut, ultricies scelerisque enim. Maecenas vehicula urna quis diam vehicula hendrerit.');
+// createCustomer(7, 'Disgusted fish', 'Vestibulum vel cursus arcu. Vestibulum laoreet velit ut tortor pulvinar semper');
+// createCustomer(8, 'Pulled-pants fish', 'Suspendisse potenti. Morbi porta elementum velit. Maecenas efficitur porttitor ornare.');
 
 const changeOpinion = (e) => {
 
