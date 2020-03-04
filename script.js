@@ -4,6 +4,7 @@ const customerImage = document.querySelector("#customer-img"),
     buttons = document.querySelectorAll("#arrowButtons"),
     newCustomersArr = [],
     modalWindow = document.querySelector("#staticBackdrop"),
+    form = document.querySelector("#form"),
     newOpinionButton = document.querySelector("#newOpinionBtn"),
     newCustomerPic = document.querySelector("#newCustPic"),
     newCustomerName = document.querySelector("#name"),
@@ -85,8 +86,9 @@ const addNewOpinion = () => {
 
     createCustomer(fileName, newName, newOpinion);
 
-    $(modalWindow).modal('hide')
+    $(modalWindow).modal('hide');
 
+    form.reset();
 };
 
 buttons.forEach((button) => {
