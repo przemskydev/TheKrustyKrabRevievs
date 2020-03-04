@@ -3,7 +3,10 @@ const customerImage = document.querySelector("#customer-img"),
     customerOpinion = document.querySelector("#customer-text"),
     buttons = document.querySelectorAll("#arrowButtons"),
     newCustomersArr = [],
-    newOpinionButton = document.querySelector("#newOpinionBtn");
+    newOpinionButton = document.querySelector("#newOpinionBtn"),
+    newCustomerPic = document.querySelector("#newCustPic"),
+    newCustomerName = document.querySelector("#name"),
+    newCustomerOpinion = document.querySelector("#textarea");
 
 let i = 0;
 
@@ -72,7 +75,12 @@ const changeOpinion = (e) => {
 };
 
 const addNewOpinion = () => {
-    console.log("open form")
+
+    let newPic = newCustomerPic.files[0].name,
+        newName = newCustomerName.value,
+        newOpinion = newCustomerOpinion.value;
+
+    console.log(newPic)
 };
 
 buttons.forEach((button) => {
