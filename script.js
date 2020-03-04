@@ -3,6 +3,7 @@ const customerImage = document.querySelector("#customer-img"),
     customerOpinion = document.querySelector("#customer-text"),
     buttons = document.querySelectorAll("#arrowButtons"),
     newCustomersArr = [],
+    modalWindow = document.querySelector("#staticBackdrop"),
     newOpinionButton = document.querySelector("#newOpinionBtn"),
     newCustomerPic = document.querySelector("#newCustPic"),
     newCustomerName = document.querySelector("#name"),
@@ -26,7 +27,7 @@ class Customer {
     }
 
     get picture() {
-        return `img/${this._img}ok.jpg`;
+        return `img/${this._img}.jpg`;
     }
 
 };
@@ -34,15 +35,15 @@ class Customer {
 const createCustomer = function(img, name, opinion) {
 
     let customer = new Customer(img, name, opinion);
-    newCustomersArr.push(customer);
+    newCustomersArr.unshift(customer);
 
 };
 
 const customerArray = [
-    [1, 'Spongebob', 'The Krabby Patty is what ties us all together! Without it, there will be a complete breakdown of social order!'],
-    [2, 'PAtrick', 'Is mayonnaise an instrument?'],
-    [3, 'Squidward', 'I order the food, you cook the food, the customer gets the food. We do that for forty years and than we die.'],
-    [4, 'Mr Krab', 'We shall never deny a guest even the most ridiculous request.'],
+    ['1ok', 'Spongebob', 'The Krabby Patty is what ties us all together! Without it, there will be a complete breakdown of social order!'],
+    ['2ok', 'PAtrick', 'Is mayonnaise an instrument?'],
+    ['3ok', 'Squidward', 'I order the food, you cook the food, the customer gets the food. We do that for forty years and than we die.'],
+    ['4ok', 'Mr Krab', 'We shall never deny a guest even the most ridiculous request.'],
     // [5, 'Yellow fish', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'],
     // [6, 'Weird fish', 'Aliquam lacus lectus, varius et mauris ut, ultricies scelerisque enim. Maecenas vehicula urna quis diam vehicula hendrerit.'],
     // [7, 'Disgusted fish', 'Vestibulum vel cursus arcu. Vestibulum laoreet velit ut tortor pulvinar semper'],
@@ -78,9 +79,14 @@ const addNewOpinion = () => {
 
     let newPic = newCustomerPic.files[0].name,
         newName = newCustomerName.value,
-        newOpinion = newCustomerOpinion.value;
+        newOpinion = newCustomerOpinion.value,
+        indexOfDot = newPic.indexOf('.'),
+        fileName = newPic.slice(0, indexOfDot);
 
-    console.log(newPic)
+    createCustomer(fileName, newName, newOpinion);
+
+    $(modalWindow).modal('hide')
+
 };
 
 buttons.forEach((button) => {
