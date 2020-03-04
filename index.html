@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Customers opinion</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Slackey&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="bg-wallpaper"> </div>
+    <div class="container-fluid">
+        <div class="row height align-items-center">
+            <div class="col-10 mx-auto col-md-6">
+                <div class="row">
+                    <div class="col text-center my-3">
+                        <h4 class="title-heading text-uppercase">Customer reviews of</h4>
+                        <h1 class="title-subheading text-uppercase">The Krusty Krab</h1>
+                    </div>
+                </div>
+                <div class="card my-5 text-center customerOpinion ">
+                    <img src="img/1ok.jpg" width="150" id="customer-img" class="img-card mx-auto" alt="">
+                    <h4 id="customer-name" class="text-uppercase">Spongebob</h4>
+                    <div class="review-icons my-2">
+                        <span class="star-icon">
+                            <i class="fas fa-star"></i>
+                        </span>
+                        <span class="star-icon">
+                            <i class="fas fa-star"></i>
+                        </span>
+                        <span class="star-icon">
+                            <i class="fas fa-star"></i>
+                        </span>
+                        <span class="star-icon">
+                            <i class="fas fa-star"></i>
+                        </span>
+                        <span class="star-icon">
+                            <i class="fas fa-star-half"></i>
+                        </span>
+                    </div>
+                    <p id="customer-text">The Krabby Patty is what ties us all together! Without it, there will be a complete breakdown of social order!</p>
+                    <span class="quote-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </span>
+                    <a href="#" id="arrowButtons" class="btn prevBtn"><i class="fas fa-chevron-left fa-3x"></i></a>
+                    <a href="#" id="arrowButtons" class="btn nextBtn"><i class="fas fa-chevron-right fa-3x"></i></a>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="btnPosition" data-toggle="modal" data-target="#staticBackdrop">ADD
+            OPINION</a>
+    </div>
+
+    <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Add a new one!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="form" class="">
+                        <div class="form-row">
+                            <div class="form-group col-4">
+                                <img src="img/fishok.jpg" width="100" id="customer-img" class="" alt="">
+                            </div>
+                            <div class="form-group col-8">
+                                <label for="exampleFormControlFile1">Upload your photo</label>
+                                <input type="file" class="form-control-file" id="newCustPic" accept=".jpg, .png">
+                            </div>
+                            <div class="form-group col-10">
+                                <label for="name">Enter your name</label>
+                                <input type="bane" class="form-control" id="name">
+                                <small id="nameHelp" class="form-text text-muted">Your name is necessary to add an
+                                    opinion.</small>
+                            </div>
+                            <div class="form-group col-10">
+                                <select class="custom-select" required>
+                                    <option value="">Select a rating</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                                <div class="invalid-feedback">Please add a rating!</div>
+                            </div>
+                            <div class="mb-3 col-10">
+                                <label for="textarea">Textarea</label>
+                                <textarea class="form-control" id="textarea" placeholder="Required example textarea" required></textarea>
+                                <div class="invalid-feedback">
+                                    Please enter a message in the textarea.
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" id="newOpinionBtn" class="btn btn-primary">ADD OPINION</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="script.js" async defer></script>
+    <script src="https://kit.fontawesome.com/ded813c120.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
