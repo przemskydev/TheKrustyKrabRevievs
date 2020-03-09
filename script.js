@@ -1,106 +1,122 @@
-const customerImage = document.querySelector("#customer-img"),
-    customerName = document.querySelector("#customer-name"),
-    customerOpinion = document.querySelector("#customer-text"),
-    buttons = document.querySelectorAll("#arrowButtons"),
-    newCustomersArr = [],
-    modalWindow = document.querySelector("#staticBackdrop"),
-    form = document.querySelector("#form"),
-    newOpinionButton = document.querySelector("#newOpinionBtn"),
-    newCustomerPic = document.querySelector("#newCustPic"),
-    newCustomerName = document.querySelector("#name"),
-    newCustomerOpinion = document.querySelector("#textarea");
+(() => {
 
-let i = 0;
+    const customerImage = document.querySelector("#customer-img"),
+        customerName = document.querySelector("#customer-name"),
+        customerOpinion = document.querySelector("#customer-text"),
+        buttons = document.querySelectorAll("#arrowButtons"),
+        newCustomersArr = [],
+        modalWindow = document.querySelector("#staticBackdrop"),
+        form = document.querySelector("#form"),
+        newOpinionButton = document.querySelector("#newOpinionBtn"),
+        newCustomerPic = document.querySelector("#newCustPic"),
+        newCustomerName = document.querySelector("#name"),
+        newCustomerOpinion = document.querySelector("#textarea"),
+        listenerTest = document.querySelector('#newCustPic');
 
-class Customer {
-    constructor(img, name, opinion) {
-        this._img = img;
-        this._name = name;
-        this._opinion = opinion;
-    }
+    const customerArray = [
+        ['1ok', 'Spongebob', 'The Krabby Patty is what ties us all together! Without it, there will be a complete breakdown of social order!'],
+        ['2ok', 'PAtrick', 'Is mayonnaise an instrument?'],
+        ['3ok', 'Squidward', 'I order the food, you cook the food, the customer gets the food. We do that for forty years and than we die.'],
+        ['4ok', 'Mr Krab', 'We shall never deny a guest even the most ridiculous request.'],
+    ];
 
-    get name() {
-        return this._name;
-    }
-
-    get opinion() {
-        return this._opinion;
-    }
-
-    get picture() {
-        return `img/${this._img}.jpg`;
-    }
-
-};
-
-const createCustomer = function(img, name, opinion) {
-
-    let customer = new Customer(img, name, opinion);
-    newCustomersArr.push(customer);
-
-};
-
-const customerArray = [
-    ['1ok', 'Spongebob', 'The Krabby Patty is what ties us all together! Without it, there will be a complete breakdown of social order!'],
-    ['2ok', 'PAtrick', 'Is mayonnaise an instrument?'],
-    ['3ok', 'Squidward', 'I order the food, you cook the food, the customer gets the food. We do that for forty years and than we die.'],
-    ['4ok', 'Mr Krab', 'We shall never deny a guest even the most ridiculous request.'],
-    // [5, 'Yellow fish', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'],
-    // [6, 'Weird fish', 'Aliquam lacus lectus, varius et mauris ut, ultricies scelerisque enim. Maecenas vehicula urna quis diam vehicula hendrerit.'],
-    // [7, 'Disgusted fish', 'Vestibulum vel cursus arcu. Vestibulum laoreet velit ut tortor pulvinar semper'],
-    // [8, 'Pulled-pants fish', 'Suspendisse potenti. Morbi porta elementum velit. Maecenas efficitur porttitor ornare.']
-];
-
-customerArray.forEach(function(arrEl) {
-    createCustomer(arrEl[0], arrEl[1], arrEl[2])
-});
-
-const changeOpinion = (e) => {
-    console.log(e.target.parentNode)
-    if (e.target.parentNode.classList.contains('nextBtn')) {
-        i--
-        if (i < 0) {
-            i = newCustomersArr.length - 1
+    class Customer {
+        constructor(img, name, opinion) {
+            this._img = img;
+            this._name = name;
+            this._opinion = opinion;
         }
-        customerImage.src = newCustomersArr[i].picture;
-        customerName.textContent = newCustomersArr[i].name;
-        customerOpinion.textContent = newCustomersArr[i].opinion;
-    } else {
-        i++;
-        if (i == newCustomersArr.length) {
-            i = 0
+
+        get name() {
+            return this._name;
         }
-        customerImage.src = newCustomersArr[i].picture;
-        customerName.textContent = newCustomersArr[i].name;
-        customerOpinion.textContent = newCustomersArr[i].opinion;
-    }
-};
 
-const addNewOpinion = () => {
+        get opinion() {
+            return this._opinion;
+        }
 
-    let newPic = newCustomerPic.files[0].name,
-        newName = newCustomerName.value,
-        newOpinion = newCustomerOpinion.value,
-        indexOfDot = newPic.indexOf('.'),
-        fileName = newPic.slice(0, indexOfDot);
+        get picture() {
+            if (this._img != '') {
+                let image = this._img;
+                let regex = /blob[:]/i;
 
-    createCustomer(fileName, newName, newOpinion);
+                if (image.match(regex)) {
+                    return `${this._img}`
+                } else {
+                    return `img/${this._img}.jpg`
+                };
 
-    $(modalWindow).modal('hide');
+            } else {
+                console.error("No img")
+            };
+        }
+    };
 
-    form.reset();
-};
+    const createCustomer = function(img, name, opinion) {
 
-buttons.forEach((button) => {
-    button.addEventListener('click', (e) => {
+        let customer = new Customer(img, name, opinion);
+        newCustomersArr.push(customer);
+
+    };
+
+    customerArray.forEach(function(arrEl) {
+        createCustomer(arrEl[0], arrEl[1], arrEl[2])
+    });
+
+    let i = 0;
+
+    const changeOpinion = (e) => {
+
         if (e.target.parentNode.classList.contains('nextBtn')) {
-            changeOpinion(e);
+            i--
+            if (i < 0) {
+                i = newCustomersArr.length - 1
+            }
+            customerImage.src = newCustomersArr[i].picture;
+            customerName.textContent = newCustomersArr[i].name;
+            customerOpinion.textContent = newCustomersArr[i].opinion;
         } else {
-            changeOpinion(e);
+            i++;
+            if (i == newCustomersArr.length) {
+                i = 0
+            }
+            customerImage.src = newCustomersArr[i].picture;
+            customerName.textContent = newCustomersArr[i].name;
+            customerOpinion.textContent = newCustomersArr[i].opinion;
         }
-    })
-});
+    };
 
-newOpinionButton.addEventListener('click', (e) => {
-    addNewOpinion();
-});
+    let fileUrl;
+
+    listenerTest.addEventListener('change', (e) => {
+        fileUrl = URL.createObjectURL(e.target.files[0]);
+    });
+
+    const addNewOpinion = (picurl) => {
+
+        let picsUrl = picurl,
+            newName = newCustomerName.value,
+            newOpinion = newCustomerOpinion.value;
+
+        createCustomer(picsUrl, newName, newOpinion);
+
+        $(modalWindow).modal('hide');
+
+        form.reset();
+    };
+
+    buttons.forEach((button) => {
+        button.addEventListener('click', (e) => {
+            if (e.target.parentNode.classList.contains('nextBtn')) {
+                changeOpinion(e);
+            } else {
+                changeOpinion(e);
+            }
+        })
+    });
+
+    newOpinionButton.addEventListener('click', (e) => {
+        addNewOpinion(fileUrl);
+    });
+
+})();
